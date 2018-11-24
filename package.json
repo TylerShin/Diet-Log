@@ -1,0 +1,45 @@
+{
+  "name": "diet-log",
+  "version": "0.1.0",
+  "private": true,
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "parser": "typescript"
+  },
+  "dependencies": {
+    "@types/jest": "23.3.9",
+    "@types/node": "10.12.10",
+    "@types/react": "16.7.7",
+    "@types/react-dom": "16.0.10",
+    "firebase": "^5.5.9",
+    "firebaseui": "^3.4.1",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-redux": "^5.1.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "typescript": "3.1.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/firebase": "^3.2.1",
+    "@types/react-redux": "^6.0.10"
+  }
+}
