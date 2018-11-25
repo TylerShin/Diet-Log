@@ -1,24 +1,17 @@
 import { createStore, applyMiddleware, combineReducers, Reducer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { helloSaga } from './sagas';
+import logger from 'redux-logger';
+import { rootSaga } from './sagas';
+import { ImageReducer } from './reducers/image';
+import { authReducer } from './reducers/auth';
 
-const appReducer: Reducer = (state: AppState = { currentUser: null }, action) => {
-  switch (action.type) {
-    case 'SUCCESS_TO_SIGN_IN':
-      return { ...state, currentUser: action.payload.username };
-
-    default:
-      return state;
-  }
-};
-const reducer = combineReducers({
-  app: appReducer,
+const reducer = combineReducers<AppState>({
+  auth: authReducer,
+  imageState: ImageReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+export const store = createStore(reducer, applyMiddleware(logger, sagaMiddleware));
 
-sagaMiddleware.run(helloSaga as any);
-
-// const action = type => store.dispatch({type})
+sagaMiddleware.run(rootSaga as any);

@@ -1,6 +1,8 @@
-import { SagaIterator } from 'redux-saga';
+import { Action } from 'redux';
+import { put, all, takeEvery } from 'redux-saga/effects';
+import { ACTION_TYPES } from './actions/actionTypes';
+import { uploadImagesFlow } from './actions/uploadImage';
 
-export function* helloSaga() {
-  console.log('hello sagas');
-  return true;
+export function* rootSaga() {
+  yield all([uploadImagesFlow()]);
 }
